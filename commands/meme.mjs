@@ -9,8 +9,7 @@ async function fetchRandomMeme() {
       }
   
       const memeData = await response.json();
-      console.log(memeData)
-      return memeData; // Contains meme data in JSON format
+      return memeData; 
     } catch (error) {
       console.error('Error fetching meme:', error);
       return null;
