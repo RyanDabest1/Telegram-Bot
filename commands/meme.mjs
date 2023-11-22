@@ -21,10 +21,8 @@ async function fetchRandomMeme() {
     try {
       let meme = await fetchRandomMeme();
   
-      await ctx.replyWithPhoto(
-        { url: meme.url,
-          caption: meme.title }, 
-      );
+      await ctx.replyWithPhoto({ url: meme.url }, { caption: meme.title });
+
     } catch (error) {
       console.error('Error handling meme request:', error);
       ctx.reply('Failed to fetch a meme. Try again later.');
