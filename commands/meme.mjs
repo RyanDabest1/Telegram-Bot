@@ -1,22 +1,23 @@
 import fetch from 'node-fetch';
 
-async function fetchRandomMeme() {
-    try {
-      const response = await fetch('https://meme-api.com/gimme');
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch meme');
-      }
-  
-      const memeData = await response.json();
-      return memeData; 
-    } catch (error) {
-      console.error('Error fetching meme:', error);
-      return null;
-    }
-  }
 
   const fetchMemeAndReply = async (ctx) => {
+    async function fetchRandomMeme() {
+      try {
+        const response = await fetch('https://meme-api.com/gimme');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch meme');
+        }
+    
+        const memeData = await response.json();
+        return memeData; 
+      } catch (error) {
+        console.error('Error fetching meme:', error);
+        return null;
+      }
+    }
+    
     try {
       let meme = await fetchRandomMeme();
   
